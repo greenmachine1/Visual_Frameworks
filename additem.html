@@ -17,30 +17,55 @@
 	<body>
 		<!--Header Tags -->
 		
-			<h1>Create a Gig</h1>
+			<h1>Book a gig!</h1>
+			
 			<!-- form action used to submit to either local or server storage-->
 			<!-- method sends data behind the scenes or through the URL, post is secure-->
 			<form action="#" method="post">
 			<!-- broken our grouping of questions using the <fieldset> tag -->
 				<fieldset>
 				<!-- legends are required for each fieldset, they are indicators for the grouping as to what is going to be held-->
-					<legend>Information</legend>
+					<legend>Personal Information</legend>
 					<ul>
 					<!-- unput tags- id is the name used so that CSS and java can locate the field-->
 					<!-- the for attribute should match the id tag-->
-						<li><label for="fname">First Name:</label><input type="text" id="fname" /></li>
-						<li><label for="lname">Last Name:</label><input type="text" id="lname" /></li>
-						<li><label for="bname">Band Name:</label><input type="text" id="bname" /></li>
+					<!-- adding in labels for first name, last name, and band name-->
+						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
 					</ul>
 				</fieldset>	
 				<fieldset>
-					<legend>Band detail</legend>
-					<ul>
-						
-					</ul>
-						
+					<legend>About your band</legend>
+					<li>
+						<label for="who">My band</label>
+						<select id="who">
+						<optgroup label="rock">
+							<option value="srock">soft rock</option>
+							<option value="rock">rock</option>
+							<option value="hrock">hard rock</option>
+							<option value="metal">metal</option>
+							<option value="prock">prog rock</option>
+						</optgroup>	
+						<optgroup label="country">	
+							<option value="country">country</option>
+							<option value="folk">folk</option>
+						</optgroup>
+						<optgroup label="classical">
+							<option value="classical">classical</option>
+						</optgroup>
+						<optgroup label="rap">
+							<option value="rap">rap</option>
+						</optgroup>	
+						<optgroup label="kids music">	
+						<option value="kmusic">kids music</option>
+						</optgroup>
+						<optgroup label="jazz">
+							<option value="jazz">jazz</option>
+						<optgroup label="other">
+							<option value="other">other</option>
+						</optgroup>
+						</select>
+					</li>	
+				</fieldset>		
 			</form>			
-		<article>
-		</article>	
 	</body>
 </html>
