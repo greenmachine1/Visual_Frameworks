@@ -33,38 +33,59 @@
 						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
 					</ul>
 				</fieldset>	
+				<!-- used as a drop down menu for entering the type of music your band is-->
 				<fieldset>
 					<legend>About your band</legend>
+					<ul>
 					<li>
 						<label for="who">My band</label>
 						<select id="who">
-						<optgroup label="rock">
-							<option value="srock">soft rock</option>
-							<option value="rock">rock</option>
-							<option value="hrock">hard rock</option>
-							<option value="metal">metal</option>
-							<option value="prock">prog rock</option>
-						</optgroup>	
-						<optgroup label="country">	
-							<option value="country">country</option>
-							<option value="folk">folk</option>
-						</optgroup>
-						<optgroup label="classical">
-							<option value="classical">classical</option>
-						</optgroup>
-						<optgroup label="rap">
-							<option value="rap">rap</option>
-						</optgroup>	
-						<optgroup label="kids music">	
-						<option value="kmusic">kids music</option>
-						</optgroup>
-						<optgroup label="jazz">
-							<option value="jazz">jazz</option>
-						<optgroup label="other">
-							<option value="other">other</option>
-						</optgroup>
-						</select>
-					</li>	
+							<optgroup label="rock">
+								<option value="srock">soft rock</option>
+								<option value="rock">rock</option>
+								<option value="hrock">hard rock</option>
+								<option value="metal">metal</option>
+								<option value="prock">prog rock</option>
+							</optgroup>	
+							<optgroup label="country">	
+								<option value="country">country</option>
+								<option value="folk">folk</option>
+							</optgroup>
+							<optgroup label="classical">
+								<option value="classical">classical</option>
+							</optgroup>
+							<optgroup label="rap">
+								<option value="rap">rap</option>
+							</optgroup>	
+							<optgroup label="kids music">	
+							<option value="kmusic">kids music</option>
+							</optgroup>
+							<optgroup label="jazz">
+								<option value="jazz">jazz</option>
+							<optgroup label="other">
+								<option value="other">other</option>
+							</optgroup>
+							</select>
+					</li>
+					
+					<!-- adding check boxes for members in the band-->
+					<li>Instruments in the band</li>
+						<ul>
+							<li><input type="checkbox" checked value="1 guitar" id="guitar1" /><label for="guitar">1 Guitar</label></li>
+							<li><input type="checkbox" value="2guitar" id="guitar2" /><label for="guitar2">2 Guitar</label></li>
+							<li><input type="checkbox" value="bass" id="bass" /><label for="bass">Bass</label></li>
+							<li><input type="checkbox" value="drums" id="drums" /><label for="drums">Drums</label></li>
+							<li><input type="checkbox" value="vocalMain" id="vocalMain" /><label for="vocalMain">Main Vocals</label></li>
+							<li><input type="checkbox" value="backupVocals1" id="backupVocals1" /><label for="backupVocals1">1 Backup Vocals</label></li>
+							<li><input type="checkbox" value="backupVocals2" id="backupVocals2" /><label for="backupVocals2">2 Backup Vocals</label></li>
+							<li><input type="checkbox" value="backupVocals3" id="backupVocals3" /><label for="backupVocals3">3 backup Vocals</label></li>
+							<li><input type="checkbox" value="other" id="other" /><label for="other">Other</label></li>
+						</ul>
+						<!-- text area used as an input to tell us what other instruments are involved-->
+						<li>If you answered other, please tell us what other instruments are involved</li>
+						<li><label for="other"></label><textarea id="other"></textarea></li>
+						<li><input type="hidden" value="true" /></li>
+					
 				</fieldset>		
 			</form>			
 	</body>
