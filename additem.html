@@ -31,6 +31,8 @@
 					<!-- the for attribute should match the id tag-->
 					<!-- adding in labels for first name, last name, and band name-->
 						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
+						<p></p>
+						<li><label for="bname">Your bands name:</label><input type="text" id="bname" /></li>
 					</ul>
 				</fieldset>	
 				<!-- used as a drop down menu for entering the type of music your band is-->
@@ -67,7 +69,12 @@
 							</optgroup>
 						</select>
 					</li>
-					
+					<li>
+					<!-- used to enter in a date requested to play-->
+						<label for="startdate">Please enter the date you would like to play: </label>	
+						<input type="date" min="2012-02-31" max="2012-12-31" id="startdate" name="startdate"
+						required aria-required="true" placeholder="2012-05-18">
+					</li>
 					<!-- adding check boxes for members in the band-->
 					<li>Instruments in the band</li>
 						<ul>
@@ -86,9 +93,10 @@
 						<label for="other"></label><textarea id="other"></textarea>
 						<li><input type="hidden" value="true" /></li>
 						<!-- input slider for how many tickets you would need for your show-->
+						<li>
 							<label for="tickets">How many tickets will you need? (1 to 50):</label>
 							<input type="range" min="1" max="50" name="tickets type="range">
-							
+						</li>	
 				</ul>
 			</fieldset>		
 			<input type="submit" value="send to venue" />
