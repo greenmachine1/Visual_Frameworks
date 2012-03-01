@@ -65,7 +65,7 @@
 							<optgroup label="other">
 								<option value="other">other</option>
 							</optgroup>
-							</select>
+						</select>
 					</li>
 					
 					<!-- adding check boxes for members in the band-->
@@ -83,10 +83,15 @@
 						</ul>
 						<!-- text area used as an input to tell us what other instruments are involved-->
 						<li>If you answered other, please tell us what other instruments are involved</li>
-						<li><label for="other"></label><textarea id="other"></textarea></li>
+						<label for="other"></label><textarea id="other"></textarea>
 						<li><input type="hidden" value="true" /></li>
-					
-				</fieldset>		
-			</form>			
+						<!-- input slider for how many tickets you would need for your show-->
+							<label for="tickets">How many tickets will you need? (1 to 50):</label>
+							<input type="range" min="1" max="50" name="tickets type="range">
+							
+				</ul>
+			</fieldset>		
+			<input type="submit" value="send to venue" />
+		</form>			
 	</body>
 </html>
