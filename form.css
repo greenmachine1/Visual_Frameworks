@@ -1,5 +1,26 @@
-/*  Cory Green 
-	This is my CSS file for my project.
-	Week 2 project
+/*  Title: form.html styles
+	by: Cory Green
+	for: CSS selectors
 */
 
+/* dont forget to use px at the end of your numbers Cory! */
+/* using hex (#xxxxxxx) I can set a color for the boarder */
+/* so If I wanted margins all the way around , the order in which it goes is */
+/* top, right, bottom, left - clockwise */
+/* also, you can use percentages % */
+h1 {
+	margin: 20px 10px 5px 10px;		/*20px on top, 10px right, 5px bottom, 10px left */
+	border: 10px solid #0000FF;
+	padding: 10px;
+	background:#009000;
+	/*width: 155px; */
+	width: 15%; /* 15% of the browser width */
+}
+
+
+
+
+
+body{
+	background:#009AF0
+}
