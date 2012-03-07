@@ -24,6 +24,7 @@
 			<!-- method sends data behind the scenes or through the URL, post is secure-->
 			<form action="#" method="post">
 			<!-- broken our grouping of questions using the <fieldset> tag -->
+			<div>
 				<fieldset>
 				<!-- legends are required for each fieldset, they are indicators for the grouping as to what is going to be held-->
 					<legend>Personal Information</legend>
@@ -34,8 +35,10 @@
 						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
 						<li><label for="bname">Your bands name:</label><input type="text" id="bname" /></li>
 					</ul>
-				</fieldset>	
+				</fieldset>
+			</div>	
 				<!-- used as a drop down menu for entering the type of music your band is-->
+			<div>	
 				<fieldset>
 					<legend>About your band</legend>
 					<ul>
@@ -69,36 +72,39 @@
 							</optgroup>
 						</select>
 					</li>
+					
 					<li>
 					<!-- used to enter in a date requested to play-->
 						<label for="startdate">Please enter the date you would like to play: </label>	
 						<input type="date" min="2012-02-31" max="2012-12-31" id="startdate" name="startdate"
 						required aria-required="true" placeholder="2012-05-18">
-					</li>
-					<!-- adding check boxes for members in the band-->
-					<li>Instruments in the band</li>
-						<ul>
-							<li><input type="checkbox" checked value="guitar1" id="guitar1" /><label for="guitar">1 Guitar</label></li>
-							<li><input type="checkbox" value="guitar2" id="guitar2" /><label for="guitar2">2 Guitar</label></li>
-							<li><input type="checkbox" value="bass" id="bass" /><label for="bass">Bass</label></li>
-							<li><input type="checkbox" value="drums" id="drums" /><label for="drums">Drums</label></li>
-							<li><input type="checkbox" value="vocalMain" id="vocalMain" /><label for="vocalMain">Main Vocals</label></li>
-							<li><input type="checkbox" value="backupVocals1" id="backupVocals1" /><label for="backupVocals1">1 Backup Vocals</label></li>
-							<li><input type="checkbox" value="backupVocals2" id="backupVocals2" /><label for="backupVocals2">2 Backup Vocals</label></li>
-							<li><input type="checkbox" value="backupVocals3" id="backupVocals3" /><label for="backupVocals3">3 backup Vocals</label></li>
-							<li><input type="checkbox" value="other" id="other" /><label for="other">Other</label></li>
-						</ul>
+					
+						<!-- adding check boxes for members in the band-->
+						<li>Instruments in the band</li>
+							<ul>
+								<li><input type="checkbox" checked value="guitar1" id="guitar1" /><label for="guitar">1 Guitar</label></li>
+								<li><input type="checkbox" value="guitar2" id="guitar2" /><label for="guitar2">2 Guitar</label></li>
+								<li><input type="checkbox" value="bass" id="bass" /><label for="bass">Bass</label></li>
+								<li><input type="checkbox" value="drums" id="drums" /><label for="drums">Drums</label></li>
+								<li><input type="checkbox" value="vocalMain" id="vocalMain" /><label for="vocalMain">Main Vocals</label></li>
+								<li><input type="checkbox" value="backupVocals1" id="backupVocals1" /><label for="backupVocals1">1 Backup Vocals</label></li>
+								<li><input type="checkbox" value="backupVocals2" id="backupVocals2" /><label for="backupVocals2">2 Backup Vocals</label></li>
+								<li><input type="checkbox" value="backupVocals3" id="backupVocals3" /><label for="backupVocals3">3 backup Vocals</label></li>
+								<li><input type="checkbox" value="other" id="other" /><label for="other">Other</label></li>
+							</ul>
+						</li>
 						<!-- text area used as an input to tell us what other instruments are involved-->
 						<li>If you answered other, please tell us what other instruments are involved</li>
-						<label for="other"></label><textarea id="other"></textarea>
+							<label for="other"></label><textarea id="other"></textarea>
 						<li><input type="hidden" value="true" /></li>
 						<!-- input slider for how many tickets you would need for your show-->
 						<li>
 							<label for="tickets">How many tickets will you need? (1 to 50):</label>
-							<input type="range" min="1" max="50" name="tickets type="range">
+							<input type="range" min="1" max="50" name="tickets" type="range">
 						</li>	
 				</ul>
-			</fieldset>		
+			</fieldset>	
+			</div>
 			<input type="submit" value="send to venue" />
 		</form>			
 	</body>
