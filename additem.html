@@ -33,8 +33,10 @@
 						<!-- unput tags- id is the name used so that CSS and java can locate the field-->
 						<!-- the for attribute should match the id tag-->
 						<!-- adding in labels for first name, last name, and band name-->
-						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
-						<li><label for="bname">Your bands name:</label><input type="text" id="bname" /></li>
+						<!-- added onfocus for when someone clicks inside the input field to change its color -->
+						<!-- also added onclick so when you click on the next one it changes the color back -->
+						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" onfocus="styleField1();" onclick="unstyledField2();" /></li>
+						<li><label for="bname">Your bands name:</label><input type="text" id="bname" onfocus ="styleField2();" onclick="unstyledField1();"/></li>
 					</ul>
 				</fieldset>
 			</div>	

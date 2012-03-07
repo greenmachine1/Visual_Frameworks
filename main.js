@@ -7,6 +7,33 @@
 // 					getElementById("idvalue");
 
 
+// changes color of input field when you click inside it.
+function styleField1()
+{
+	var field = document.getElementById("fname");
+	field.style.backgroundColor = "#0903FF";
+}
+// changes color of input field when you click inside it.
+function styleField2()
+{
+	var field = document.getElementById("bname");
+	field.style.backgroundColor = "#0903FF";
+}
+
+// changes the color back to original color when input field looses focus.
+function unstyledField1()
+{
+	var field = document.getElementById("fname");
+	field.style.backgroundColor = "#FFFFFF";
+}
+
+// changes the color back to original color when input field looses focus.
+function unstyledField2()
+{
+	var field = document.getElementById("bname");
+	field.style.backgroundColor = "#FFFFFF";
+}
+
 // when the window first loads, it will call on this addBorder function
 window.onLoad = addBorder();
 
