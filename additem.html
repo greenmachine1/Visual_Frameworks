@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!-- Cory green, 03/01/2012, Visual Frameworks week 1, project 1, Make a gig web app!-->
+<!-- had an error with linking my .js file, its fixed now but just remember to make sure the file names match! -->
 <html>
 	<!-- start of header info -->
 	<head>
@@ -29,9 +30,9 @@
 				<!-- legends are required for each fieldset, they are indicators for the grouping as to what is going to be held-->
 					<legend>Personal Information</legend>
 					<ul>
-					<!-- unput tags- id is the name used so that CSS and java can locate the field-->
-					<!-- the for attribute should match the id tag-->
-					<!-- adding in labels for first name, last name, and band name-->
+						<!-- unput tags- id is the name used so that CSS and java can locate the field-->
+						<!-- the for attribute should match the id tag-->
+						<!-- adding in labels for first name, last name, and band name-->
 						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
 						<li><label for="bname">Your bands name:</label><input type="text" id="bname" /></li>
 					</ul>
@@ -41,71 +42,73 @@
 			<div>	
 				<fieldset>
 					<legend>About your band</legend>
-					<ul>
-					<li>
-						<label for="who">My band</label>
-						<select id="who">
-							<optgroup label="rock">
-								<option value="srock">soft rock</option>
-								<option value="rock">rock</option>
-								<option value="hrock">hard rock</option>
-								<option value="metal">metal</option>
-								<option value="prock">prog rock</option>
-							</optgroup>	
-							<optgroup label="country">	
-								<option value="country">country</option>
-								<option value="folk">folk</option>
-							</optgroup>
-							<optgroup label="classical">
-								<option value="classical">classical</option>
-							</optgroup>
-							<optgroup label="rap">
-								<option value="rap">rap</option>
-							</optgroup>	
-							<optgroup label="kids music">	
-							<option value="kmusic">kids music</option>
-							</optgroup>
-							<optgroup label="jazz">
-								<option value="jazz">jazz</option>
-							<optgroup label="other">
-								<option value="other">other</option>
-							</optgroup>
-						</select>
-					</li>
-					
-					<li>
-					<!-- used to enter in a date requested to play-->
-						<label for="startdate">Please enter the date you would like to play: </label>	
-						<input type="date" min="2012-02-31" max="2012-12-31" id="startdate" name="startdate"
-						required aria-required="true" placeholder="2012-05-18">
-					
-						<!-- adding check boxes for members in the band-->
-						<li>Instruments in the band</li>
-							<ul>
-								<li><input type="checkbox" checked value="guitar1" id="guitar1" /><label for="guitar">1 Guitar</label></li>
-								<li><input type="checkbox" value="guitar2" id="guitar2" /><label for="guitar2">2 Guitar</label></li>
-								<li><input type="checkbox" value="bass" id="bass" /><label for="bass">Bass</label></li>
-								<li><input type="checkbox" value="drums" id="drums" /><label for="drums">Drums</label></li>
-								<li><input type="checkbox" value="vocalMain" id="vocalMain" /><label for="vocalMain">Main Vocals</label></li>
-								<li><input type="checkbox" value="backupVocals1" id="backupVocals1" /><label for="backupVocals1">1 Backup Vocals</label></li>
-								<li><input type="checkbox" value="backupVocals2" id="backupVocals2" /><label for="backupVocals2">2 Backup Vocals</label></li>
-								<li><input type="checkbox" value="backupVocals3" id="backupVocals3" /><label for="backupVocals3">3 backup Vocals</label></li>
-								<li><input type="checkbox" value="other" id="other" /><label for="other">Other</label></li>
-							</ul>
-						</li>
-						<!-- text area used as an input to tell us what other instruments are involved-->
-						<li>If you answered other, please tell us what other instruments are involved</li>
-							<label for="other"></label><textarea id="other"></textarea>
-						<li><input type="hidden" value="true" /></li>
-						<!-- input slider for how many tickets you would need for your show-->
+					<ul id="items">
 						<li>
-							<label for="tickets">How many tickets will you need? (1 to 50):</label>
-							<input type="range" min="1" max="50" name="tickets" type="range">
+							<label for="who">My band</label>
+							<select id="who">
+								<optgroup label="rock">
+									<option value="srock">soft rock</option>
+									<option value="rock">rock</option>
+									<option value="hrock">hard rock</option>
+									<option value="metal">metal</option>
+									<option value="prock">prog rock</option>
+								</optgroup>	
+								<optgroup label="country">	
+									<option value="country">country</option>
+									<option value="folk">folk</option>
+								</optgroup>
+								<optgroup label="classical">
+									<option value="classical">classical</option>
+								</optgroup>
+								<optgroup label="rap">
+									<option value="rap">rap</option>
+								</optgroup>	
+								<optgroup label="kids music">	
+								<option value="kmusic">kids music</option>
+								</optgroup>
+								<optgroup label="jazz">
+									<option value="jazz">jazz</option>
+								<optgroup label="other">
+									<option value="other">other</option>
+								</optgroup>
+							</select>
+						</li>
+					
+						<li>
+						<!-- used to enter in a date requested to play-->
+							<label for="startdate">Please enter the date you would like to play: </label>	
+							<input type="date" min="2012-02-31" max="2012-12-31" id="startdate" name="startdate"
+							required aria-required="true" placeholder="2012-05-18">
+					
+							<!-- adding check boxes for members in the band-->
+							<li>Instruments in the band</li>
+								<ul>
+									<li><input type="checkbox" checked value="guitar1" id="guitar1" /><label for="guitar">1 Guitar</label></li>
+									<li><input type="checkbox" value="guitar2" id="guitar2" /><label for="guitar2">2 Guitar</label></li>
+									<li><input type="checkbox" value="bass" id="bass" /><label for="bass">Bass</label></li>
+									<li><input type="checkbox" value="drums" id="drums" /><label for="drums">Drums</label></li>
+									<li><input type="checkbox" value="vocalMain" id="vocalMain" /><label for="vocalMain">Main Vocals</label></li>
+									<li><input type="checkbox" value="backupVocals1" id="backupVocals1" /><label for="backupVocals1">1 Backup Vocals</label></li>
+									<li><input type="checkbox" value="backupVocals2" id="backupVocals2" /><label for="backupVocals2">2 Backup Vocals</label></li>
+									<li><input type="checkbox" value="backupVocals3" id="backupVocals3" /><label for="backupVocals3">3 backup Vocals</label></li>
+									<li><input type="checkbox" value="other" id="other" /><label for="other">Other</label></li>
+								</ul>
+							</li>
+							<!-- text area used as an input to tell us what other instruments are involved-->
+							<li>If you answered other, please tell us what other instruments are involved</li>
+								<label for="other"></label><textarea id="other"></textarea>
+							<li><input type="hidden" value="true" /></li>
+							<!-- input slider for how many tickets you would need for your show-->
+							<li>
+								<label for="tickets">How many tickets will you need? (1 to 50):</label>
+								<input type="range" min="1" max="50" name="tickets" type="range">
 						</li>	
-				</ul>
-			</fieldset>	
+					</ul>
+				</fieldset>	
 			</div>
 			<input type="submit" value="send to venue" />
-		</form>			
+		</form>	
+		<!-- linking my .js file with my main html -->
+	<script src="main.js"></script>
 	</body>
 </html>

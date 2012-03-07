@@ -31,18 +31,12 @@ p{
 	font-family: Arial; /*changes font face (also when a font is multiple words, use "" ("Times new Roman")) */
 	font-weight: bold;
 	font-size: 20px;
-	/* font:;  im choosing to not use the short hand method which combines all previous font styles into one line of code */
 	line-height: 24px; /* distance between each line */
-	/*letter-spacing: 10px;  space in between letters */
 	text-align: left;  /*aligns text */
-	/*text-indent:; indents text */
-	/*text-transform:capitalize;  capitalizes every word in text */
-	/*text-decoration:; */
 }
 /*added background styling */
 body{
 	background: rgba(0,100,255,0.6);
-	
 }
 /*added legend styling */
 legend{
@@ -54,3 +48,4 @@ li{
 	font-style: italic;
 	font-size: 20px;
 }
+
