@@ -25,7 +25,7 @@
 			
 			<!-- form action used to submit to either local or server storage-->
 			<!-- method sends data behind the scenes or through the URL, post is secure-->
-			<form action="#" method="post">
+			<form action="#" method="post" id="bandInfo" />
 			<!-- broken our grouping of questions using the <fieldset> tag -->
 			<div>
 				<fieldset>
@@ -85,11 +85,13 @@
 					</ul>
 				</fieldset>	
 			</div>
-			
-			<!-- added submit and reset buttons-->
-			<a href='#' id="submit">Submit Data</a>
-			<a href='#' id="reset">Reset Data</a>
-			<a href='#' id="dispInfo">Display Data</a>
+			<nav>
+				<!-- added submit and reset buttons-->
+				<a href='#' id="submit">Submit Data</a>
+				<a href='#' id="reset">Reset Data</a>
+				<a href='#' id="dispInfo">Display Data</a>
+				<a href="index.html" id="addNew" style="display:none";">Add new Item</a>
+			</nav>
 		</form>	
 		<!-- linking my .js file with my main html -->
 	<script src="main.js"></script>

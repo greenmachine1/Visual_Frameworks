@@ -125,6 +125,29 @@ function getCheckBoxValue()
 	
 }
 
+function toggleControls(n)
+{
+	switch(n)
+	{
+		case "on":
+			$('bandInfo').style.display = "none";
+			$('reset').style.display = "inline";
+			$('dispInfo').style.display = "none";
+			$('addNew').style.display = "inline";
+			break;
+		case "off":
+			$('bandInfo').style.display = "block";
+			$('reset').style.display = "inline";
+			$('dispInfo').style.display = "inline";
+			$('addNew').style.display = "none";
+			$('items').style.display = "none";
+			break;
+		default:
+			return false;
+	}
+	
+}
+
 	// store in local storage - key and id
 	function storeData()
 	{
@@ -136,7 +159,7 @@ function getCheckBoxValue()
 			item.name 			= ["name", $('fname').value];
 			item.bName 			= ["bName", $('bname').value];
 			item.genre 			= ["genre", $('groups').value];
-		
+			item.date			= ["date", $('startdate').value];
 			item.instrument1	= ["instrument1", instrument1Value];
 			item.instrument2	= ["instrument2", instrument2Value];
 			item.instrument3	= ["instrument3", instrument3Value];
@@ -159,11 +182,13 @@ function getCheckBoxValue()
 	function getData()
 	// writes data from local storage to the browser
 	{
+		toggleControls("on");
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
+		$('items').style.display = "block";
 		for(var i = 0, j = localStorage.length; i < j; i++)
 		{
 			var makeli = document.createElement('li');
@@ -185,6 +210,20 @@ function getCheckBoxValue()
 		}	
 	}
 
+	function clearLocal()
+	{
+		if(localStorage.length === 0)
+		{	
+			alert("There is no data to clear.");
+		}
+		else
+		{	
+			localStorage.clear();
+			alert("Everything has been deleted");
+			window.location.reload();
+			return false;
+		}
+	}
 	// calling on the makeCatagory function
 	makeCatagory();
 
@@ -196,10 +235,10 @@ function getCheckBoxValue()
 	var submit = $('submit');
 	submit.addEventListener("click", storeData);
 
-	/*
+	
 	// clear function
 	var clear = $('reset');
 	clear.addEventListener("click", clearLocal);
-	*/
+
 
 });
