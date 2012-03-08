@@ -42,6 +42,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		instrument7Value = "no";
 		instrument8Value = "no";
 		instrument9Value = "no";
+
+
 		
 		
 					
@@ -146,7 +148,7 @@ function getCheckBoxValue()
 			item.instrument9	= ["instrument9", instrument9Value];
 		
 			item.other			= ["other", $('other').value];
-			//item.tickets		= ["tickets", $('tickets').value];
+			item.tickets		= ["tickets", $('tickets').value];
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("info saved!");
@@ -154,14 +156,42 @@ function getCheckBoxValue()
 		
 	}
 
+	function getData()
+	// writes data from local storage to the browser
+	{
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		document.body.appendChild(makeDiv);
+		for(var i = 0, j = localStorage.length; i < j; i++)
+		{
+			var makeli = document.createElement('li');
+			makeList.appendChild(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			// convert the string form local storage value back to an object byt using JSON .parse
+			var obj = JSON.parse(value);
+			var makeSubList = document.createElement('ul');
+			makeli.appendChild(makeSubList);
+			for(var n in obj)
+			{
+				var makeSubli = document.createElement('li');
+				makeSubList.appendChild(makeSubli);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubli.innerHTML = optSubText;
+			}
+			
+		}	
+	}
 
 	// calling on the makeCatagory function
 	makeCatagory();
 
-	/*// shows data function
+	// shows data function
 	var dispInfo = $('dispInfo');
 	dispInfo.addEventListener("click", getData);
-	*/
+	
 	// set submit click events
 	var submit = $('submit');
 	submit.addEventListener("click", storeData);
