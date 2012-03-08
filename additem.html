@@ -21,6 +21,8 @@
 	<body>
 		<!--Header Tags -->
 			<h1>Book a gig!</h1>
+			
+			
 			<!-- form action used to submit to either local or server storage-->
 			<!-- method sends data behind the scenes or through the URL, post is secure-->
 			<form action="#" method="post">
@@ -35,46 +37,21 @@
 						<!-- adding in labels for first name, last name, and band name-->
 						<!-- added onfocus for when someone clicks inside the input field to change its color -->
 						<!-- also added onclick so when you click on the next one it changes the color back -->
-						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" onfocus="styleField1();" onclick="unstyledField2();" /></li>
-						<li><label for="bname">Your bands name:</label><input type="text" id="bname" onfocus ="styleField2();" onclick="unstyledField1();"/></li>
+						<li><label for="fname">Your Name Please:</label><input type="text" id="fname" /></li>
+						<li><label for="bname">Your bands name:</label><input type="text" id="bname" /></li>
 					</ul>
 				</fieldset>
 			</div>	
 				<!-- used as a drop down menu for entering the type of music your band is-->
 			<div>	
+				
 				<fieldset>
 					<legend>About your band</legend>
 					<ul id="items">
 						<li>
-							<label for="who">My band</label>
-							<select id="who">
-								<optgroup label="rock">
-									<option value="srock">soft rock</option>
-									<option value="rock">rock</option>
-									<option value="hrock">hard rock</option>
-									<option value="metal">metal</option>
-									<option value="prock">prog rock</option>
-								</optgroup>	
-								<optgroup label="country">	
-									<option value="country">country</option>
-									<option value="folk">folk</option>
-								</optgroup>
-								<optgroup label="classical">
-									<option value="classical">classical</option>
-								</optgroup>
-								<optgroup label="rap">
-									<option value="rap">rap</option>
-								</optgroup>	
-								<optgroup label="kids music">	
-								<option value="kmusic">kids music</option>
-								</optgroup>
-								<optgroup label="jazz">
-									<option value="jazz">jazz</option>
-								<optgroup label="other">
-									<option value="other">other</option>
-								</optgroup>
-							</select>
-						</li>
+							<!--<label for="who">My band</label>-->
+							<li id="select"><label for="groups">My band</label></li>
+					
 					
 						<li>
 						<!-- used to enter in a date requested to play-->
@@ -110,8 +87,9 @@
 			</div>
 			
 			<!-- added submit and reset buttons-->
-			<input type="submit" value="send to venue" />
-			<input type="reset" value="reset form" />
+			<a href='#' id="submit">Submit Data</a>
+			<a href='#' id="reset">Reset Data</a>
+			<a href='#' id="dispInfo">Display Data</a>
 		</form>	
 		<!-- linking my .js file with my main html -->
 	<script src="main.js"></script>
