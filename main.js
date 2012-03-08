@@ -5,7 +5,7 @@
 
 // targeting 		getElementsByTagName("tagname");	returns a collection
 // 					getElementById("idvalue");
-
+window.addEventListener("DOMContentLoaded", function(){
 
 // changes color of input field when you click inside it.
 function styleField1()
@@ -42,3 +42,5 @@ function addBorder(){
 	var getUltagname = document.getElementsByTagName("ul");
 	getUltagname[1].style.border = "10px solid black";
 }
+
+});
