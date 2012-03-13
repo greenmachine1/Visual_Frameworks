@@ -7,7 +7,6 @@
 //waiting until the DOM is ready
 window.addEventListener("DOMContentLoaded", function()
 {
-
 	function $(x)
 	{
 		var theElement = document.getElementById(x);
@@ -45,9 +44,11 @@ window.addEventListener("DOMContentLoaded", function()
 		instrument7Value = "no",
 		instrument8Value = "no",
 		instrument9Value = "no"; 
+		
+
 
 // find value of selected buttons
-function getCheckBoxValue()
+function getCheckBoxValue(idName, instrumentValues)
 {
 	if($('guitar1').checked)
 	{
@@ -121,8 +122,8 @@ function getCheckBoxValue()
 	{
 		instrument9Value = "No";
 	} 
-	
-}
+}	
+
 
 function toggleControls(n)
 {
@@ -144,9 +145,7 @@ function toggleControls(n)
 		default:
 			return false;
 	}
-	
 }
-
 	// store in local storage - key and id
 	function storeData()
 	{
@@ -155,10 +154,11 @@ function toggleControls(n)
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
 		var item 				= {};
-			item.name 			= ["name", $('fname').value];
-			item.bName 			= ["bName", $('bname').value];
-			item.genre 			= ["genre", $('groups').value];
-			item.date			= ["date", $('startdate').value];
+			item.name 			= ["Your Name:", $('fname').value];
+			item.bName 			= ["Band Name:", $('bname').value];
+			item.email			= ["Email Address:", $('email').value];
+			item.genre 			= ["Genre:", $('groups').value];
+			item.date			= ["Date wanting: ", $('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -167,10 +167,10 @@ function toggleControls(n)
 			item.instrument6	= ["1 backup vocal", instrument6Value];
 			item.instrument7	= ["2 backup vocals", instrument7Value];
 			item.instrument8	= ["3 backup vocals", instrument8Value];
-			item.instrument9	= ["other instrument", instrument9Value];
+			item.instrument9	= ["Other Instrument(s)", instrument9Value];
 		
-			item.other			= ["otherInfo", $('otherInfo').value];
-			item.tickets		= ["tickets", $('tickets').value];
+			item.other			= ["Other Info:", $('other1').value];
+			item.tickets		= ["Tickets Wanted", $('tickets').value];
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("info saved!");
@@ -205,10 +205,9 @@ function toggleControls(n)
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
 			}
-			
 		}	
 	}
-
+	// clear the local storage function
 	function clearLocal()
 	{
 		if(localStorage.length === 0)
@@ -225,7 +224,7 @@ function toggleControls(n)
 	}
 	// calling on the makeCatagory function
 	makeCatagory();
-
+	
 	// shows data function
 	var dispInfo = $('dispInfo');
 	dispInfo.addEventListener("click", getData);
@@ -233,11 +232,8 @@ function toggleControls(n)
 	// set submit click events
 	var submit = $('submit');
 	submit.addEventListener("click", storeData);
-
 	
 	// clear function
 	var clear = $('reset');
 	clear.addEventListener("click", clearLocal);
-
-
 });
