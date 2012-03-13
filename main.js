@@ -1,10 +1,12 @@
 // this is the main java script file for the web-app
 // Author: Cory Green
 // Date: 03/06/2012
-// project: Week 2 web-App
+// project: Week 3 web-App
+// updated for week 3 starting on march 12th, 2012
 
 //waiting until the DOM is ready
-window.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("DOMContentLoaded", function()
+{
 
 	function $(x)
 	{
@@ -32,21 +34,18 @@ window.addEventListener("DOMContentLoaded", function(){
 	// variable defaults
 	var bandType = ["--choose a genre--","soft rock", "rock", "hard rock", "hard rock", "metal",
 					"prog rock", "country", "folk", "classical", "rap", "kids music",
-					"jazz", "other"],
-		instrument1Value = "no";
-		instrument2Value = "no";
-		instrument3Value = "no";
-		instrument4Value = "no";
-		instrument5Value = "no";
-		instrument6Value = "no";
-		instrument7Value = "no";
-		instrument8Value = "no";
-		instrument9Value = "no";
+					"jazz", "other"];
+												
+	var	instrument1Value = "no",
+		instrument2Value = "no",
+		instrument3Value = "no",
+		instrument4Value = "no",
+		instrument5Value = "no",
+		instrument6Value = "no",
+		instrument7Value = "no",
+		instrument8Value = "no",
+		instrument9Value = "no"; 
 
-
-		
-		
-					
 // find value of selected buttons
 function getCheckBoxValue()
 {
@@ -121,7 +120,7 @@ function getCheckBoxValue()
 	else
 	{
 		instrument9Value = "No";
-	}
+	} 
 	
 }
 
@@ -160,17 +159,17 @@ function toggleControls(n)
 			item.bName 			= ["bName", $('bname').value];
 			item.genre 			= ["genre", $('groups').value];
 			item.date			= ["date", $('startdate').value];
-			item.instrument1	= ["instrument1", instrument1Value];
-			item.instrument2	= ["instrument2", instrument2Value];
-			item.instrument3	= ["instrument3", instrument3Value];
-			item.instrument4	= ["instrument4", instrument4Value];
-			item.instrument5	= ["instrument5", instrument5Value];
-			item.instrument6	= ["instrument6", instrument6Value];
-			item.instrument7	= ["instrument7", instrument7Value];
-			item.instrument8	= ["instrument8", instrument8Value];
-			item.instrument9	= ["instrument9", instrument9Value];
+			item.instrument1	= ["1 guitar", instrument1Value];
+			item.instrument2	= ["2 guitars", instrument2Value];
+			item.instrument3	= ["bass", instrument3Value];
+			item.instrument4	= ["drums", instrument4Value];
+			item.instrument5	= ["main vocals", instrument5Value];
+			item.instrument6	= ["1 backup vocal", instrument6Value];
+			item.instrument7	= ["2 backup vocals", instrument7Value];
+			item.instrument8	= ["3 backup vocals", instrument8Value];
+			item.instrument9	= ["other instrument", instrument9Value];
 		
-			item.other			= ["other", $('other').value];
+			item.other			= ["otherInfo", $('otherInfo').value];
 			item.tickets		= ["tickets", $('tickets').value];
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
