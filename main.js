@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('select'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "groups");
+			makeSelect.setAttribute("id", "genre");
 		for(var i = 0, j = bandType.length; i < j; i++)
 		{
 			var makeOption = document.createElement('option');
@@ -140,7 +140,7 @@ function toggleControls(n)
 			$('reset').style.display = "inline";
 			$('dispInfo').style.display = "inline";
 			$('addNew').style.display = "inline";
-			$('items').style.display = "none";
+			$('items').style.display = "inline";
 			break;
 		default:
 			return false;
@@ -157,7 +157,7 @@ function toggleControls(n)
 			item.name 			= ["Your Name:", $('fname').value];
 			item.bName 			= ["Band Name:", $('bname').value];
 			item.email			= ["Email Address:", $('email').value];
-			item.genre 			= ["Genre:", $('groups').value];
+			item.genre 			= ["Genre:", $('genre').value];
 			item.date			= ["Date wanting: ", $('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
@@ -183,11 +183,11 @@ function toggleControls(n)
 	{
 		toggleControls("on");
 		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute("id", "items");
+		makeDiv.setAttribute("id", "item");
 		var makeList = document.createElement('ul');
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
-		$('items').style.display = "block";
+		$('item').style.display = "block";
 		for(var i = 0, j = localStorage.length; i < j; i++)
 		{
 			var makeli = document.createElement('li');
@@ -196,10 +196,10 @@ function toggleControls(n)
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			// convert the string fromm local storage value back to an object by using JSON .parse
-			var obj = JSON.parse(value);
+			var obj = JSON.parse(value); // changed obj to item
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
-			for(var n in obj)
+			for(var n in obj)	// changed item from obj
 			{
 				var makeSubli = document.createElement('li');
 				makeSubList.appendChild(makeSubli);
@@ -240,7 +240,7 @@ function toggleControls(n)
 	{
 		// grab data from our local storage.
 		var value = localStorage.getItem(this.key);
-		var obj = JSON.parse(value);
+		var item = JSON.parse(value);
 		
 		// show the form
 		toggleControls("off");
@@ -249,8 +249,80 @@ function toggleControls(n)
 		$('fname').value = item.fname[1];
 		$('bName').value = item.bName[1];
 		$('email').value = item.email[1];
-		$('genre').value = item.genre[1];
-		$('date').value = item.date[1];
+		$('genre').value = item.genre[2];
+		$('startdate').value = item.startdate[2];
+			if($('guitar1').checked)
+			{
+				instrument1Value = $('guitar1').value;
+			}
+			else
+			{
+				instrument1Value = "No";
+			}
+			if($('guitar2').checked)
+			{
+				instrument2Value = $('guitar2').value;
+			}
+			else
+			{
+				instrument2Value = "No";
+			}	
+			if($('bass').checked)
+			{
+				instrument3Value = $('bass').value;
+			}
+			else
+			{
+				instrument3Value = "No";
+			}
+			if($('drums').checked)
+			{
+				instrument4Value = $('drums').value;
+			}
+			else
+			{
+				instrument4Value = "No";
+			}
+			if($('vocalMain').checked)
+			{
+				instrument5Value = $('vocalMain').value;
+			}
+			else
+			{
+				instrument5Value = "No";
+			}
+			if($('backupVocals1').checked)
+			{
+				instrument6Value = $('backupVocals1').value;
+			}
+			else
+			{
+				instrument6Value = "No";
+			}
+			if($('backupVocals2').checked)
+			{
+				instrument7Value = $('backupVocals2').value;
+			}
+			else
+			{
+				instrument7Value = "No";
+			}
+			if($('backupVocals3').checked)
+			{
+				instrument8Value = $('backupVocals3').value;
+			}
+			else
+			{
+				instrument8Value = "No";
+			}
+			if($('other').checked)
+			{
+				instrument9Value = $('other').value;
+			}
+			else
+			{
+				instrument9Value = "No";
+			} 	
 		$('instrument1').value = item.instrument1[1];
 		$('instrument2').value = item.instrument2[1];
 		$('instrument3').value = item.instrument3[1];
@@ -259,7 +331,7 @@ function toggleControls(n)
 		$('instrument6').value = item.instrument6[1];
 		$('instrument7').value = item.instrument7[1];
 		$('instrument8').value = item.instrument8[1];
-		$('instrument9').value = item.instrument9[1];
+		$('instrument9').value = item.instrument9[1];  */
 		$('other1').value = item.other1[1];
 		$('tickets').value = item.tickets[1];
 	}
