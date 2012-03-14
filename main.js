@@ -218,22 +218,52 @@ function toggleControls(n)
 		var editLink = document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;	
-		var editText = "Edit Contact";
-		//editLink.addEventListener("click", editItem);
+		var editText = "Edit Info";
+		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
 		
-		//var breakTag = document.createElement('br');
-		//linksLi.appendChild(breakTag);
+		// adds a seperator between links
+		var breakTag = document.createElement('br');
+		linksLi.appendChild(breakTag);
 		
 		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
-		var deleteText = "Delete contact";
+		var deleteText = "Delete Info";
 		//deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
+	
+	function editItem()
+	{
+		// grab data from our local storage.
+		var value = localStorage.getItem(this.key);
+		var obj = JSON.parse(value);
+		
+		// show the form
+		toggleControls("off");
+		
+		// populate the form fields with the current localStorage values.
+		$('fname').value = item.fname[1];
+		$('bName').value = item.bName[1];
+		$('email').value = item.email[1];
+		$('genre').value = item.genre[1];
+		$('date').value = item.date[1];
+		$('instrument1').value = item.instrument1[1];
+		$('instrument2').value = item.instrument2[1];
+		$('instrument3').value = item.instrument3[1];
+		$('instrument4').value = item.instrument4[1];
+		$('instrument5').value = item.instrument5[1];
+		$('instrument6').value = item.instrument6[1];
+		$('instrument7').value = item.instrument7[1];
+		$('instrument8').value = item.instrument8[1];
+		$('instrument9').value = item.instrument9[1];
+		$('other1').value = item.other1[1];
+		$('tickets').value = item.tickets[1];
+	}
+	
 	
 	// clear the local storage function
 	function clearLocal()
