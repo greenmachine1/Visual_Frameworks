@@ -50,80 +50,73 @@ window.addEventListener("DOMContentLoaded", function()
 // find value of selected buttons
 function getCheckBoxValue()
 {
-	var idInfo = ["guitar1", "guitar2", "bass", "drums", "vocalMain", "backupVocals1",
-				  "backupVocals2", "backupVocals3", "other"];
-	var instrumentValues = ["instrument1Value", "instrument2Value", "instrument3Value",
-							"instrument4Value", "instrument5Value", "instrument6Value",
-							"instrument7Value", "instrument8Value", "instrument9Value"];
-
-// injects guitar1, guitar2 etc. into idInfo...
-	if($(idInfo[0]).checked)
+	if($('guitar1').checked)
 	{
-		instrument1Value = $(idInfo[0]).value;
+		instrument1Value = $('guitar1').value;
 	}
 	else
 	{
 		instrument1Value = "No";
 	}
-	if($(idInfo[1]).checked)
+	if($('guitar2').checked)
 	{
-		instrument2Value = $(idInfo[1]).value;
+		instrument2Value = $('guitar2').value;
 	}
 	else
 	{
 		instrument2Value = "No";
 	}
-	if($(idInfo[2]).checked)
+	if($('bass').checked)
 	{
-		instrument3Value = $(idInfo[2]).value;
+		instrument3Value = $('bass').value;
 	}
 	else
 	{
 		instrument3Value = "No";
 	}
-	if($(idInfo[3]).checked)
+	if($('drums').checked)
 	{
-		instrument4Value = $(idInfo[3]).value;
+		instrument4Value = $('drums').value;
 	}
 	else
 	{
 		instrument4Value = "No";
 	}
-	if($(idInfo[4]).checked)
+	if($('vocalMain').checked)
 	{
-		instrument5Value = $(idInfo[4]).value;
+		instrument5Value = $('vocalMain').value;
 	}
 	else
 	{
 		instrument5Value = "No";
 	}
-	if($(idInfo[5]).checked)
+	if($('backupVocals1').checked)
 	{
-		instrument6Value = $(idInfo[5]).value;
+		instrument6Value = $('backupVocals1').value;
 	}
 	else
 	{
 		instrument6Value = "No";
 	}
-	if($(idInfo[6]).checked)
+	if($('backupVocals2').checked)
 	{
-		instrument7Value = $(idInfo[6]).value;
+		instrument7Value = $('backupVocals2').value;
 	}
 	else
 	{
 		instrument7Value = "No";
 	}
-	if($(idInfo[7]).checked)
+	if($('backupVocals3').checked)
 	{
-		instrument8Value = $(idInfo[7]).value;
+		instrument8Value = $('backupVocals3').value;
 	}
 	else
 	{
 		instrument8Value = "No";
 	}
-	if($(idInfo[8]).checked)
+	if($('other').checked)
 	{
-		instrument9Value = $(idInfo[8]).value;
+		instrument9Value = $('other').value;
 	}
 	else
 	{
@@ -146,7 +139,7 @@ function toggleControls(n)
 			$('bandInfo').style.display = "block";
 			$('reset').style.display = "inline";
 			$('dispInfo').style.display = "inline";
-			$('addNew').style.display = "none";
+			$('addNew').style.display = "inline";
 			$('items').style.display = "none";
 			break;
 		default:
@@ -198,10 +191,11 @@ function toggleControls(n)
 		for(var i = 0, j = localStorage.length; i < j; i++)
 		{
 			var makeli = document.createElement('li');
+			var linksLi = document.createElement('li');
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
-			// convert the string form local storage value back to an object byt using JSON .parse
+			// convert the string fromm local storage value back to an object by using JSON .parse
 			var obj = JSON.parse(value);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
@@ -211,9 +205,36 @@ function toggleControls(n)
 				makeSubList.appendChild(makeSubli);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubli.innerHTML = optSubText;
+				makeSubList.appendChild(linksLi);
 			}
+			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
 		}	
 	}
+	// make item links 
+	// create edit and delete links for each stored item when displayed
+	function makeItemLinks(key, linksLi)
+	// add edit single item link
+	{
+		var editLink = document.createElement('a');
+		editLink.href = "#";
+		editLink.key = key;	
+		var editText = "Edit Contact";
+		//editLink.addEventListener("click", editItem);
+		editLink.innerHTML = editText;
+		linksLi.appendChild(editLink);
+		
+		//var breakTag = document.createElement('br');
+		//linksLi.appendChild(breakTag);
+		
+		var deleteLink = document.createElement('a');
+		deleteLink.href = "#";
+		deleteLink.key = key;
+		var deleteText = "Delete contact";
+		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.innerHTML = deleteText;
+		linksLi.appendChild(deleteLink);
+	}
+	
 	// clear the local storage function
 	function clearLocal()
 	{
