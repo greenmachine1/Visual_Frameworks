@@ -48,75 +48,82 @@ window.addEventListener("DOMContentLoaded", function()
 
 
 // find value of selected buttons
-function getCheckBoxValue(idName, instrumentValues)
+function getCheckBoxValue()
 {
-	if($('guitar1').checked)
+	var idInfo = ["guitar1", "guitar2", "bass", "drums", "vocalMain", "backupVocals1",
+				  "backupVocals2", "backupVocals3", "other"];
+	var instrumentValues = ["instrument1Value", "instrument2Value", "instrument3Value",
+							"instrument4Value", "instrument5Value", "instrument6Value",
+							"instrument7Value", "instrument8Value", "instrument9Value"];
+
+// injects guitar1, guitar2 etc. into idInfo...
+	if($(idInfo[0]).checked)
 	{
-		instrument1Value = $('guitar1').value;
+		instrument1Value = $(idInfo[0]).value;
 	}
 	else
 	{
 		instrument1Value = "No";
 	}
-	if($('guitar2').checked)
+	if($(idInfo[1]).checked)
 	{
-		instrument2Value = $('guitar2').value;
+		instrument2Value = $(idInfo[1]).value;
 	}
 	else
 	{
 		instrument2Value = "No";
 	}
-	if($('bass').checked)
+	if($(idInfo[2]).checked)
 	{
-		instrument3Value = $('bass').value;
+		instrument3Value = $(idInfo[2]).value;
 	}
 	else
 	{
 		instrument3Value = "No";
 	}
-	if($('drums').checked)
+	if($(idInfo[3]).checked)
 	{
-		instrument4Value = $('drums').value;
+		instrument4Value = $(idInfo[3]).value;
 	}
 	else
 	{
 		instrument4Value = "No";
 	}
-	if($('vocalMain').checked)
+	if($(idInfo[4]).checked)
 	{
-		instrument5Value = $('vocalMain').value;
+		instrument5Value = $(idInfo[4]).value;
 	}
 	else
 	{
 		instrument5Value = "No";
 	}
-	if($('backupVocals1').checked)
+	if($(idInfo[5]).checked)
 	{
-		instrument6Value = $('backupVocals1').value;
+		instrument6Value = $(idInfo[5]).value;
 	}
 	else
 	{
 		instrument6Value = "No";
 	}
-	if($('backupVocals2').checked)
+	if($(idInfo[6]).checked)
 	{
-		instrument7Value = $('backupVocals2').value;
+		instrument7Value = $(idInfo[6]).value;
 	}
 	else
 	{
 		instrument7Value = "No";
 	}
-	if($('backupVocals3').checked)
+	if($(idInfo[7]).checked)
 	{
-		instrument8Value = $('backupVocals3').value;
+		instrument8Value = $(idInfo[7]).value;
 	}
 	else
 	{
 		instrument8Value = "No";
 	}
-	if($('other').checked)
+	if($(idInfo[8]).checked)
 	{
-		instrument9Value = $('other').value;
+		instrument9Value = $(idInfo[8]).value;
 	}
 	else
 	{
