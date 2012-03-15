@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", function()
 		var formTag = document.getElementsByTagName("form"),
 			selectLi = $('select'),
 			makeSelect = document.createElement('select');
-			makeSelect.setAttribute("id", "genre");
+			makeSelect.setAttribute("id", "groups");
 		for(var i = 0, j = bandType.length; i < j; i++)
 		{
 			var makeOption = document.createElement('option');
@@ -44,6 +44,8 @@ window.addEventListener("DOMContentLoaded", function()
 		instrument7Value = "no",
 		instrument8Value = "no",
 		instrument9Value = "no"; 
+		
+	var errMsg = $('errors');	
 		
 
 
@@ -140,16 +142,27 @@ function toggleControls(n)
 			$('reset').style.display = "inline";
 			$('dispInfo').style.display = "inline";
 			$('addNew').style.display = "inline";
-			$('items').style.display = "inline";
+			$('item').style.display = "inline";
 			break;
 		default:
 			return false;
 	}
 }
 	// store in local storage - key and id
-	function storeData()
+	function storeData(key)
 	{
-		var id					= Math.floor(Math.random() * 1000000001);
+		// if there is no key this is a brand new item and we need a new key
+		if(!key)
+		{
+			var id					= Math.floor(Math.random() * 1000000001);
+		}
+		else
+		{	
+			// set the id to the exsisting key were editing so that it will save over the data
+			// the key is the same key that has been passed from the edit submit event handler
+			// to the validate function, and then passed here, into the store data function
+			id = key;
+		}
 		// gather up all our form field values and store in an object.
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
@@ -157,7 +170,7 @@ function toggleControls(n)
 			item.name 			= ["Your Name:", $('fname').value];
 			item.bName 			= ["Band Name:", $('bname').value];
 			item.email			= ["Email Address:", $('email').value];
-			item.genre 			= ["Genre:", $('genre').value];
+			item.groups 		= ["Genre:", $('groups').value];
 			item.date			= ["Date wanting: ", $('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
@@ -231,7 +244,7 @@ function toggleControls(n)
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Info";
-		//deleteLink.addEventListener("click", deleteItem);
+		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
 	}
@@ -247,10 +260,10 @@ function toggleControls(n)
 		
 		// populate the form fields with the current localStorage values.
 		$('fname').value = item.fname[1];
-		$('bName').value = item.bName[1];
+		$('bname').value = item.bname[1];
 		$('email').value = item.email[1];
-		$('genre').value = item.genre[2];
-		$('startdate').value = item.startdate[2];
+		$('groups').value = item.groups[1];
+		$('startdate').value = item.startdate[1];
 			if($('guitar1').checked)
 			{
 				instrument1Value = $('guitar1').value;
@@ -323,15 +336,7 @@ function toggleControls(n)
 			{
 				instrument9Value = "No";
 			} 	
-		$('instrument1').value = item.instrument1[1];
-		$('instrument2').value = item.instrument2[1];
-		$('instrument3').value = item.instrument3[1];
-		$('instrument4').value = item.instrument4[1];
-		$('instrument5').value = item.instrument5[1];
-		$('instrument6').value = item.instrument6[1];
-		$('instrument7').value = item.instrument7[1];
-		$('instrument8').value = item.instrument8[1];
-		$('instrument9').value = item.instrument9[1];  */
+		
 		$('other1').value = item.other1[1];
 		$('tickets').value = item.tickets[1];
 		
@@ -346,6 +351,20 @@ function toggleControls(n)
 		editSubmit.key = this.key;
 	}
 	
+	function deleteItem()
+	{
+		var ask = confirm("Are you sure you want to delete this data?");
+		if(ask)
+		{
+			localStorage.removeItem(this.key);
+			alert("The contact was deleted!");
+			window.location.reload();
+		}
+		else
+		{
+			alert("Item was NOT deleted.");
+		}
+	}
 	
 	// clear the local storage function
 	function clearLocal()
@@ -363,12 +382,82 @@ function toggleControls(n)
 		}
 	}
 	
-	function validate()
+	function validate(e)
 	{
+		// define the elements we want to check
+		var getfname = $('fname');
+		var getbname = $('bname');
+		var getemail = $('email');
+		var getgroups = $('groups');
+		
+		//reset error messages
+		errMsg.innerHTML = "";
+		getgroups.style.border = "1px solid black";
+		getfname.style.border = "1px solid black";
+		getbname.style.border = "1px solid black";
+		getemail.style.border = "1px solid black";
+		
+		
+		// get error messages
+		var messageArry = [];
+		// fname validation
+		if(getgroups.value == "--choose a genre--")
+		{
+			var genreError = "Please choose a genre.";
+			getgroups.style.border = "1px solid red";
+			messageArry.push(genreError);
+		}
+		
+		// name validation
+		if(getfname.value === "")
+		{
+			var fNameError = "Please enter in your name";
+			getfname.style.border = "1px solid red";
+			messageArry.push(fNameError);
+		}
+		
+		// band validation
+		if(getbname.value === "")
+		{
+			var bNameError = "Please enter in your band name";
+			getbname.style.border = "1px solid red";
+			messageArry.push(bNameError);
+		}
+		
+		//Email validation
+		var regular = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		if(!(regular.exec(getemail.value)))
+		{
+			var emailError = "Please enter a valid email address.";
+			getemail.style.border = "1px solid red";
+			messageArry.push(emailError);
+		}	
+		
+		// if there were errors display them on screen
+		// if there is anything in the message array that means there was an error
+		if(messageArry.length >= 1)
+		{
+			for(var i = 0, j = messageArry.length; i < j; i++)
+			{	
+				var txt = document.createElement('li');
+				txt.innerHTML = messageArry[i];
+				errMsg.appendChild(txt);
+			}
+			e.preventDefault();
+			return false;
+		}
+		else
+		{	
+			// if all is ok then save data, send key value(which came from the edit data function
+			// remember this key value was passed through the edit submit listener as a property
+			storeData(this.key);
+		}
 	}
 	
 	// calling on the makeCatagory function
 	makeCatagory();
+	
+	// set link and submit click events
 	
 	// shows data function
 	var dispInfo = $('dispInfo');
@@ -376,7 +465,7 @@ function toggleControls(n)
 	
 	// set submit click events
 	var submit = $('submit');
-	submit.addEventListener("click", storeData);
+	submit.addEventListener("click", validate);
 	
 	// clear function
 	var clear = $('reset');

@@ -21,12 +21,13 @@
 			<h1>Book a gig!</h1>
 			<!-- form action used to submit to either local or server storage-->
 			<!-- method sends data behind the scenes or through the URL, post is secure-->
-			<form action="#" method="post" id="bandInfo" />
+			<form action="#" method="post" id="bandInfo">
 			<!-- broken our grouping of questions using the <fieldset> tag -->
 			<div>
 				<fieldset>
 				<!-- legends are required for each fieldset, they are indicators for the grouping as to what is going to be held-->
 					<legend>Personal Information</legend>
+					<ul id="errors"></ul>
 					<ul>
 						<!-- unput tags- id is the name used so that CSS and java can locate the field-->
 						<!-- the for attribute should match the id tag-->
