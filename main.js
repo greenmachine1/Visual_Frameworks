@@ -334,6 +334,16 @@ function toggleControls(n)
 		$('instrument9').value = item.instrument9[1];  */
 		$('other1').value = item.other1[1];
 		$('tickets').value = item.tickets[1];
+		
+		// remove the initial listener from the input 'save conctact'
+		save.removeEventListener("click", storeData);
+		// change submit button value to edit button
+		$('submit').value = "Edit Contact";
+		var editSubmit = $('submit');
+		// save key value established in this function as a property of the edit submit event
+		// so we can use that value when we save the data we edited.
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
 	}
 	
 	
@@ -352,6 +362,11 @@ function toggleControls(n)
 			return false;
 		}
 	}
+	
+	function validate()
+	{
+	}
+	
 	// calling on the makeCatagory function
 	makeCatagory();
 	
