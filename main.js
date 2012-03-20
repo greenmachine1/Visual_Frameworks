@@ -1,8 +1,8 @@
 // this is the main java script file for the web-app
 // Author: Cory Green
-// Date: 03/06/2012
-// project: Week 3 web-App
-// updated for week 3 starting on march 12th, 2012
+// Date: 03/18/2012
+// project: Week 4 web-App
+// updated for week 34starting on march 18th, 2012
 
 //waiting until the DOM is ready
 window.addEventListener("DOMContentLoaded", function()
@@ -126,7 +126,7 @@ function getCheckBoxValue()
 	} 
 }	
 
-
+// toggle controls
 function toggleControls(n)
 {
 	switch(n)
@@ -171,7 +171,7 @@ function toggleControls(n)
 			item.bname 			= ["Band Name:", $('bname').value];
 			item.email			= ["Email Address:", $('email').value];
 			item.groups 		= ["Genre:", $('groups').value];
-			item.startdate		= ["Date wanting: ", $('startdate').value];
+			item.startdate		= ["Date Requesting: ", $('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -195,6 +195,11 @@ function toggleControls(n)
 	// writes data from local storage to the browser
 	{
 		toggleControls("on");
+		if(localStorage.length === 0)
+		{
+			alert("There is no data in local storage so default data was added.");
+			autoFillData();
+		}
 		var makeDiv = document.createElement('div');
 		makeDiv.setAttribute("id", "item");
 		var makeList = document.createElement('ul');
@@ -223,6 +228,19 @@ function toggleControls(n)
 			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
 		}	
 	}
+	
+	// autopopulate the local storage
+	function autoFillData()
+	{
+		// The actual JSON object data required for this to work is coming form our json.js file
+		// store json object in local storage
+		for(var n in json)
+		{	
+			var id = Math.floor(Math.random() *	1000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		}
+	}
+	
 	// make item links 
 	// create edit and delete links for each stored item when displayed
 	function makeItemLinks(key, linksLi)

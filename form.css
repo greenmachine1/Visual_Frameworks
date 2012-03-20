@@ -1,13 +1,10 @@
 /*  Title: form.html styles
 	by: Cory Green
 	for: CSS selectors
+	class: Visual Frameworks, week 4
 */
 
-/* dont forget to use px at the end of your numbers Cory! */
-/* using hex (#xxxxxxx) I can set a color for the boarder */
-/* so If I wanted margins all the way around , the order in which it goes is */
-/* top, right, bottom, left - clockwise */
-/* also, you can use percentages % */
+/* h1 styling */
 h1{
 	margin: 20px 10px 5px 10px;		/*20px on top, 10px right, 5px bottom, 10px left */
 	border: 10px solid #0000FF;
@@ -17,6 +14,8 @@ h1{
 	color: #FFFFFF;
 	text-align: center;
 }
+
+/* h2 stlying */
 h2{
 	margin: 20px 10px 5px 10px;		/*20px on top, 10px right, 5px bottom, 10px left */
 	border: 10px solid #0000FF;
@@ -25,6 +24,8 @@ h2{
 	width: 80%; /* 80% of the browser width */
 	color: #FFFFFF;
 }
+
+/* paragraph styling */
 p{
 	color: #000000;
 	font-style: italic;
@@ -34,15 +35,18 @@ p{
 	line-height: 24px; /* distance between each line */
 	text-align: left;  /*aligns text */
 }
-/*added background styling */
+
+/* body styling */
 body{
 	background: rgba(0,100,255,0.6);
 }
-/*added legend styling */
+
+/* legend styling */
 legend{
 	color: #FF0000; 
 }
-/* added styling to my li */
+
+/* li styling */
 li{
 	color: #000000;
 	font-style: italic;
