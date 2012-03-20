@@ -167,11 +167,11 @@ function toggleControls(n)
 		// object properties contain array with the form label and input values
 		getCheckBoxValue();
 		var item 				= {};
-			item.name 			= ["Your Name:", $('fname').value];
-			item.bName 			= ["Band Name:", $('bname').value];
+			item.fname 			= ["Your Name:", $('fname').value];
+			item.bname 			= ["Band Name:", $('bname').value];
 			item.email			= ["Email Address:", $('email').value];
 			item.groups 		= ["Genre:", $('groups').value];
-			item.date			= ["Date wanting: ", $('startdate').value];
+			item.startdate		= ["Date wanting: ", $('startdate').value];
 			item.instrument1	= ["1 guitar", instrument1Value];
 			item.instrument2	= ["2 guitars", instrument2Value];
 			item.instrument3	= ["bass", instrument3Value];
@@ -182,7 +182,7 @@ function toggleControls(n)
 			item.instrument8	= ["3 backup vocals", instrument8Value];
 			item.instrument9	= ["Other Instrument(s)", instrument9Value];
 		
-			item.other			= ["Other Info:", $('other1').value];
+			item.other1			= ["Other Info:", $('other1').value];
 			item.tickets		= ["Tickets Wanted", $('tickets').value];
 		// save data into local storage: using stringify to convert our object to a string
 		localStorage.setItem(id, JSON.stringify(item));
