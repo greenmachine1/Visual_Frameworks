@@ -5,7 +5,7 @@ var json = {
 		"email": ["Email:", "your@email.com"],
 		"startdate": ["Date requesting:", "2012-12-10"],
 		"other1": ["Other info:", "None"],
-		"tickets": ["Amount of tickets needed:","10"];
+		"tickets": ["Amount of tickets needed:","10"]
 	},
 	"bandInfo2": {
 		"fname": ["fname:", "Steve"],
@@ -13,8 +13,6 @@ var json = {
 		"email": ["Email:", "your@email.com"],
 		"startdate": ["Date requesting:", "2012-03-09"],
 		"other1": ["Other info:", "None"],
-		"tickets": ["Amount of tickets needed:","1"];
+		"tickets": ["Amount of tickets needed:","1"]
 	}
 }
-
-/* default JSON object */

@@ -234,6 +234,7 @@ function toggleControls(n)
 	{
 		// The actual JSON object data required for this to work is coming form our json.js file
 		// store json object in local storage
+		// fixed an error in my json data that would cause json to not be recognized!
 		for(var n in json)
 		{	
 			var id = Math.floor(Math.random() *	1000000001);
