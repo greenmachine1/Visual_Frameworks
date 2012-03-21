@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", function()
 	}
 	// variable defaults
 	var bandType = ["--choose a genre--","rock", "metal", "country", "classical", "rap", 
-					"kids music", "jazz", "other"];
+					"kids", "jazz", "other"];
 												
 	var	instrument1Value = "no",
 		instrument2Value = "no",
@@ -216,6 +216,7 @@ function toggleControls(n)
 			var obj = JSON.parse(value); // changed obj to item
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
+			getImage(obj.group[1], makeSubList); // gets an image for our form, passes in makeSubList
 			for(var n in obj)	// changed item from obj
 			{
 				var makeSubli = document.createElement('li');
@@ -226,6 +227,16 @@ function toggleControls(n)
 			}
 			makeItemLinks(localStorage.key(i), linksLi); // create our edit and delete buttons/links for each item in local storage
 		}	
+	}
+	
+	// get the image for the right catagory
+	function getImage(catName, makeSubList)
+	{
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImg = document.createElement('img');
+		var setSrc = newImg.setAttribute("src", "pics/"+ catName + ".png");
+		imageLi.appendChild(newImg);
 	}
 	
 	// autopopulate the local storage
