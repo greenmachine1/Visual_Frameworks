@@ -31,7 +31,7 @@ window.addEventListener("DOMContentLoaded", function()
 		selectLi.appendChild(makeSelect);
 	}
 	// variable defaults
-	var bandType = ["--choose a genre--","soft rock", "rock", "hard rock", "hard rock", "metal",
+	var bandType = ["--choose a genre--","soft rock", "rock", "hard rock", "metal",
 					"prog rock", "country", "folk", "classical", "rap", "kids music",
 					"jazz", "other"];
 												
@@ -359,8 +359,8 @@ function toggleControls(n)
 		$('other1').value = item.other1[1];
 		$('tickets').value = item.tickets[1];
 		
-		// remove the initial listener from the input 'save conctact'
-		save.removeEventListener("click", storeData);
+		// remove the initial listener from the input save conctact
+		submit.removeEventListener("click", storeData);  // changed save to submit
 		// change submit button value to edit button
 		$('submit').value = "Edit Contact";
 		var editSubmit = $('submit');
