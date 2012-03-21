@@ -31,9 +31,8 @@ window.addEventListener("DOMContentLoaded", function()
 		selectLi.appendChild(makeSelect);
 	}
 	// variable defaults
-	var bandType = ["--choose a genre--","soft rock", "rock", "hard rock", "metal",
-					"prog rock", "country", "folk", "classical", "rap", "kids music",
-					"jazz", "other"];
+	var bandType = ["--choose a genre--","rock", "metal", "country", "classical", "rap", 
+					"kids music", "jazz", "other"];
 												
 	var	instrument1Value = "no",
 		instrument2Value = "no",
